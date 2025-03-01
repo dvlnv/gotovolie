@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotovo li e?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            font-size: 6rem;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .loader {
+            width: 64px;
+            height: 64px;
+            border: 8px solid white;
+            border-top: 8px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .content {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        @keyframes showContent {
+            to { opacity: 1; visibility: visible; }
+        }
+        
+        /* Hide spinner after 3s and show NO */
+        .loader {
+            animation: spin 1s linear infinite, fadeOut 0s linear 3s forwards;
+        }
+        
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
+        
+        .content {
+            animation: showContent 0s linear 3s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+    <div class="content">Ne</div>
+</body>
+</html>
